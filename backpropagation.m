@@ -5,7 +5,7 @@ function [new_weights_h, new_weights_o, error_vec] = backpropagation (data, weig
   error_vec = [];
   iter = 0;
 
-  while true
+  while iter < 100
     acumulated_error = 0;
     iter += 1;
     for i = 1:length(data)
@@ -14,7 +14,7 @@ function [new_weights_h, new_weights_o, error_vec] = backpropagation (data, weig
 
       transformed_data = data(i,3);
       error = output - transformed_data;
-      acumulated_error += abs(error);
+      acumulated_error += sum(abs(error));
       new_weights_o = new_weights_o - (alpha .* error .* a_vec');
       new_weights_h = new_weights_h - (alpha .* error .* new_weights_o' .* a_vec .* (1 - a_vec) .* [1 data(i,1:2)]);
 
