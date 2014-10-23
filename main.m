@@ -1,12 +1,17 @@
 #!/usr/bin/octave
 
-d_500 = dlmread('datos_P1_2_SD2014_n500.txt');
-d_1000 = dlmread('datos_P1_2_SD2014_n1000.txt');
-d_2000 = dlmread('datos_P1_2_SD2014_n2000.txt');
+d1_500 = dlmread('datos_P1_2_SD2014_n500.txt');
+d1_1000 = dlmread('datos_P1_2_SD2014_n1000.txt');
+d1_2000 = dlmread('datos_P1_2_SD2014_n2000.txt');
 
-global training_set = d_1000;
+d2_500 = dlmread('datos500');
+d2_1000 = dlmread('datos1000');
+d2_2000 = dlmread('datos2000');
+
+global training_set = d2_500;
 global units_hidden_layer = 8; % Important: without countung bias unit
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 weights_1 = rand(units_hidden_layer, 3);
 weights_2 = rand(1, units_hidden_layer);
@@ -30,4 +35,3 @@ for i = 1:length(training_set)
     plot(training_set(i,1),training_set(i,2),'b*')
   endif
 endfor
-

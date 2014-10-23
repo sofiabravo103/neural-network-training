@@ -20,7 +20,7 @@ function [new_weights_h, new_weights_o, error_vec] = backpropagation (data, weig
 
     endfor
     error_vec = [error_vec; acumulated_error];
-    acumulated_error
+
     if iter > 1 && (error_vec(iter - 1) > acumulated_error) ...
       && (((error_vec(iter - 1) - acumulated_error) <= 0.0001));
       disp(sprintf('Early exit by error convergence with %d iterations.', iter));
